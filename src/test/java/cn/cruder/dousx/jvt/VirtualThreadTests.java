@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VirtualThreadTests {
     @Test
-    void ofVirtualTest() {
+    void ofVirtualTest() throws InterruptedException {
         for (int i = 0; i < 10; i++) {
             final var k = i;
             Thread.ofVirtual().name(String.format("vt-%s", k))
@@ -19,6 +19,7 @@ public class VirtualThreadTests {
                         System.out.println(Thread.currentThread().getName() + " " + k);
                     });
         }
+        TimeUnit.SECONDS.sleep(1);
 
     }
 }
