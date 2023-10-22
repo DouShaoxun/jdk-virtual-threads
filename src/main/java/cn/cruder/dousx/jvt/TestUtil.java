@@ -12,6 +12,8 @@ public final class TestUtil {
         CountDownLatch downLatch = new CountDownLatch(count);
         Runnable runnable = () -> {
             try {
+                // java.lang.Thread.sleep(long, int)
+                //VirtualThread.sleepNanos 让出虚拟线程
                 TimeUnit.MILLISECONDS.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
